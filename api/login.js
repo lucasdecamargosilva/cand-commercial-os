@@ -1,30 +1,15 @@
 // ── LOGIN.JS — valida usuário/senha NO SERVIDOR ───────────────
-// As senhas vivem na env APP_USERS. Nunca no JavaScript do navegador.
-import crypto from 'node:crypto';
+// Os usuários vêm do Supabase (ou do APP_USERS, se o Supabase não
+// estiver configurado). Senha nunca trafega para o navegador.
 import { sign, SESSION_TTL_MS } from './_auth.js';
-
-function loadUsers() {
-  const raw = process.env.APP_USERS;
-  if (!raw) return null;
-  try {
-    const u = JSON.parse(raw);
-    return (u && typeof u === 'object' && !Array.isArray(u)) ? u : null;
-  } catch { return null; }
-}
-
-function safeEqual(a, b) {
-  const ab = Buffer.from(String(a == null ? '' : a));
-  const bb = Buffer.from(String(b == null ? '' : b));
-  if (ab.length !== bb.length) return false;
-  return crypto.timingSafeEqual(ab, bb);
-}
+import { findUser, verifyPassword, dummyVerify, authSource } from './_users.js';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const users = loadUsers();
-  if (!users) {
-    return res.status(503).json({ error: 'Login indisponível: configure a variável APP_USERS no servidor.' });
+  const source = authSource();
+  if (!source) {
+    return res.status(503).json({ error: 'Login indisponível: configure SUPABASE_URL + SUPABASE_SERVICE_KEY (ou APP_USERS) no servidor.' });
   }
 
   let body = req.body;
@@ -33,17 +18,28 @@ export default async function handler(req, res) {
 
   const username = String(body.user || '').toLowerCase().trim();
   const password = String(body.pass || '');
-  const u = users[username];
+  if (!username || !password) return res.status(400).json({ error: 'Informe usuário e senha.' });
 
-  // Compara sempre, mesmo sem usuário, pra não vazar quais logins existem.
-  const ok = safeEqual(u ? u.pass : crypto.randomBytes(16).toString('hex'), password) && !!u;
+  let user;
+  try {
+    user = await findUser(username);
+  } catch (err) {
+    console.error('[login] falha ao consultar usuários:', err.message);
+    return res.status(503).json({ error: 'Não foi possível verificar o login agora. Tente de novo em instantes.' });
+  }
+
+  // Sem usuário (ou desativado) ainda gasta o tempo de um hash,
+  // para não revelar quais logins existem.
+  if (!user || !user.ativo) { await dummyVerify(password); return res.status(401).json({ error: 'Usuário ou senha incorretos.' }); }
+
+  const ok = await verifyPassword(password, user.senha);
   if (!ok) return res.status(401).json({ error: 'Usuário ou senha incorretos.' });
 
   const session = {
-    u: username,
-    role: u.role === 'owner' ? 'owner' : 'creator',
-    name: u.name || username,
-    creator: u.creator || null,
+    u: user.username,
+    role: user.role,
+    name: user.nome,
+    creator: user.creator,
     exp: Date.now() + SESSION_TTL_MS
   };
 
