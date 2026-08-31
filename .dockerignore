@@ -1,0 +1,6 @@
+.git
+.env
+.env.local
+*.bak
+node_modules
+README.md

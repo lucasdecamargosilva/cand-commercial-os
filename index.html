@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Cand Commercial OS</title>
+<style>
+:root{--bg:#f7f5f2;--panel:#fff;--ink:#171717;--muted:#737373;--line:#e8e3dc;--soft:#efe9e1;--green:#2f7d5c;--red:#9e3b3b;--shadow:0 10px 30px rgba(0,0,0,.05);--radius:18px}*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:240px 1fr;min-height:100vh}.sidebar{background:#171717;color:#fff;padding:24px 18px;position:sticky;top:0;height:100vh}.brand{padding:0 10px 24px;border-bottom:1px solid #333;margin-bottom:18px}.brand h1{font-size:20px;margin:0;letter-spacing:.18em}.brand p{font-size:11px;margin:4px 0 0;color:#aaa;letter-spacing:.16em}.nav{display:grid;gap:6px}.nav button{border:0;background:transparent;color:#cfcfcf;text-align:left;padding:11px 12px;border-radius:10px}.nav button:hover,.nav button.active{background:#2b2b2b;color:#fff}.main{padding:28px}.topbar{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:24px}.topbar h2{margin:0;font-size:26px}.topbar p{margin:5px 0 0;color:var(--muted);font-size:13px}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 14px}.btn.primary{background:#171717;color:#fff;border-color:#171717}.grid{display:grid;gap:16px}.cards-4{grid-template-columns:repeat(4,minmax(0,1fr))}.cards-5{grid-template-columns:repeat(5,minmax(0,1fr))}.cards-3{grid-template-columns:repeat(3,minmax(0,1fr))}.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}.metric small{color:var(--muted);display:block;margin-bottom:8px}.metric strong{font-size:28px}.metric .delta{font-size:12px;margin-top:8px}.up{color:var(--green)}.down{color:var(--red)}.section-title{display:flex;align-items:center;justify-content:space-between;margin:26px 0 12px}.section-title h3{margin:0;font-size:18px}.section-title span{color:var(--muted);font-size:12px}.table-wrap{overflow:auto;background:#fff;border:1px solid var(--line);border-radius:16px}table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:13px 14px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}th{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#777;background:#faf9f7}tr:last-child td{border-bottom:0}.badge{display:inline-flex;padding:5px 8px;border-radius:999px;font-size:11px;background:#eee}.badge.valid{background:#e8f3ed;color:#245c46}.badge.test{background:#fff1da;color:#8a5717}.badge.weak{background:#f7e5e5;color:#8c3434}.badge.plan{background:#e9eef3;color:#40586b}.split{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}.timeline{display:grid;gap:10px}.timeline-item{display:grid;grid-template-columns:92px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.timeline-item:last-child{border-bottom:0}.timeline .date{font-size:12px;color:var(--muted)}.insight{border-left:3px solid #171717;padding:12px 14px;background:#faf9f7;border-radius:8px;margin-bottom:10px}.insight b{display:block;margin-bottom:4px}.insight p{margin:0;color:#666;font-size:13px;line-height:1.45}.view{display:none}.view.active{display:block}.toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:14px}input,select,textarea{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:#fff;color:#222}textarea{width:100%;min-height:90px;resize:vertical}.months{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.month{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px}.month h4{margin:0 0 10px}.event{border:1px solid var(--line);padding:10px;border-radius:10px;margin-bottom:8px;background:#faf9f7}.event .meta{font-size:11px;color:var(--muted);margin-top:5px}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.form-grid .full{grid-column:1/-1}.kpi-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.kpi{background:#faf9f7;border:1px solid var(--line);border-radius:12px;padding:12px}.kpi small{color:var(--muted);display:block}.kpi b{display:block;margin-top:6px;font-size:18px}.kanban{display:grid;grid-template-columns:repeat(4,minmax(240px,1fr));gap:12px;overflow:auto}.kanban-col{background:#f2efeb;border:1px solid var(--line);border-radius:14px;padding:10px;min-height:280px}.kanban-col h4{font-size:13px;margin:2px 4px 10px}.task{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:8px}.task small{color:var(--muted)}.notice{background:#171717;color:#fff;border-radius:16px;padding:18px}.notice p{color:#ddd}@media(max-width:1050px){.app{grid-template-columns:1fr}.sidebar{height:auto;position:static}.nav{grid-template-columns:repeat(3,1fr)}.main{padding:18px}.cards-4,.cards-3,.months,.kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.split{grid-template-columns:1fr}}@media(max-width:620px){.nav{grid-template-columns:repeat(2,1fr)}.cards-4,.cards-3,.months,.kpi-grid,.form-grid{grid-template-columns:1fr}.topbar{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<div id="loginScreen" style="display:flex;position:fixed;inset:0;background:#f5f4f0;z-index:9999;align-items:center;justify-content:center"><div style="background:#fff;border-radius:16px;padding:40px;width:100%;max-width:360px;box-shadow:0 4px 32px rgba(0,0,0,.1)"><div style="text-align:center;margin-bottom:28px"><div style="font-size:22px;font-weight:700">CAND</div><div style="font-size:12px;color:#999;text-transform:uppercase;letter-spacing:.1em;margin-top:2px">Commercial OS</div></div><div style="margin-bottom:12px"><input id="loginUser" placeholder="Usuário" style="width:100%;border:1px solid #e0e0e0;border-radius:8px;padding:11px 14px;font-size:14px;outline:none;box-sizing:border-box"></div><div style="margin-bottom:16px"><input id="loginPass" type="password" placeholder="Senha" style="width:100%;border:1px solid #e0e0e0;border-radius:8px;padding:11px 14px;font-size:14px;outline:none;box-sizing:border-box" onkeydown="if(event.key==='Enter')doLogin()"></div><button onclick="doLogin()" style="width:100%;background:#111;color:#fff;border:none;border-radius:8px;padding:12px;font-size:14px;font-weight:600;cursor:pointer">Entrar &#x2192;</button><div id="loginError" style="color:#c00;font-size:12px;text-align:center;margin-top:10px;min-height:16px"></div></div></div>
+<div class="app">
+<aside class="sidebar"><div class="brand"><h1>CAND</h1><p>COMMERCIAL OS</p></div><div class="nav" id="nav"></div></aside>
+<main class="main">
+<div class="topbar"><div><h2 id="viewTitle">Dashboard Executivo</h2><p id="viewSub">Visão rápida da operação comercial</p></div><div class="actions"><button class="btn" id="shopifySyncBtn" onclick="syncShopify()">↻ Sincronizar Shopify</button>
+        <button class="btn" onclick="exportData()">Exportar JSON</button><label class="btn">Importar<input type="file" accept=".json" onchange="importData(event)" style="display:none"></label><button class="btn primary" onclick="openQuickCampaign()">+ Nova ação</button></div></div>
+
+<section class="view active" id="dashboard">
+<div class="grid cards-4"><div class="card metric"><small>Ação atual</small><strong>48 por 148</strong><div class="delta up">Último dia</div></div><div class="card metric"><small>Próxima ação</small><strong>Semana do Acetato</strong><div class="delta">Planejada</div></div><div class="card metric"><small>Ticket alvo</small><strong>R$ 190–220</strong><div class="delta">Faixa saudável</div></div><div class="card metric"><small>Ações validadas</small><strong id="validatedCount">2</strong><div class="delta up">Base histórica</div></div></div>
+<div class="section-title"><h3>Visão da ação atual</h3><span>dados demonstrativos</span></div>
+<div class="grid kpi-grid"><div class="kpi"><small>Receita</small><b>R$ 126.480</b></div><div class="kpi"><small>Pedidos</small><b>612</b></div><div class="kpi"><small>Ticket</small><b>R$ 206,67</b></div><div class="kpi"><small>Conversão</small><b>2,84%</b></div><div class="kpi"><small>Sell-through</small><b>31%</b></div></div>
+<div class="split"><div><div class="section-title"><h3>Próximas ações</h3><span>30 dias</span></div><div class="card timeline" id="upcoming"></div></div><div><div class="section-title"><h3>Inteligência comercial</h3><span>insights</span></div><div class="card"><div class="insight"><b>Oportunidade</b><p>Semana do Acetato combina estoque alto + boa margem + narrativa premium.</p></div><div class="insight"><b>Atenção</b><p>Evitar repetir Leve 3, Pague 2 no curto prazo: mecânica com baixa aderência recente.</p></div><div class="insight"><b>Próximo teste</b><p>24h / 24 produtos / R$124 tem bom potencial de urgência e conversão.</p></div></div></div></div>
+</section>
+
+<section class="view" id="calendar"><div class="toolbar"><select><option>2026</option></select><button class="btn" onclick="addCalendarEvent()">+ Adicionar ação</button></div><div class="months" id="months"></div></section>
+
+<section class="view" id="planner"><div class="card"><div class="form-grid"><div><label>Nome da campanha</label><input id="pName" value="Semana do Acetato"></div><div><label>Status</label><select id="pStatus"><option>Planejada</option><option>Em produção</option><option>Ativa</option><option>Finalizada</option></select></div><div><label>Oferta</label><input id="pOffer" value="Acetatos selecionados por R$199,90"></div><div><label>Duração</label><input id="pDuration" value="7 dias"></div><div><label>Objetivo</label><input id="pGoal" value="Conversão + giro de estoque"></div><div><label>Intensidade</label><select id="pIntensity"><option>Média</option><option>Alta</option><option>Muito alta</option><option>Baixa</option></select></div><div class="full"><label>Narrativa / motivo</label><textarea id="pNarrative">Semana dedicada às armações em acetato premium, com foco em acabamento, valor percebido e preço fixo.</textarea></div><div class="full"><label>Pilares de comunicação</label><textarea id="pPillars">Acetato premium • acabamento • peças de até R$449,90 • preço fixo R$199,90 • urgência</textarea></div></div><div style="margin-top:14px;display:flex;gap:8px"><button class="btn primary" onclick="savePlanner()">Salvar planejamento</button><button class="btn" onclick="resetPlanner()">Restaurar exemplo</button></div></div><div class="section-title"><h3>Checklist de execução</h3><span>planejar → produzir → lançar → medir</span></div><div class="kanban"><div class="kanban-col"><h4>Planejamento</h4><div class="task"><b>Definir coleção</b><br><small>Responsável: Lucas</small></div><div class="task"><b>Definir preço e margem</b><br><small>Status: concluído</small></div></div><div class="kanban-col"><h4>Produção</h4><div class="task"><b>Banner site</b><br><small>Status: em produção</small></div><div class="task"><b>Copies e WhatsApp</b><br><small>Status: pendente</small></div></div><div class="kanban-col"><h4>Lançamento</h4><div class="task"><b>Atualizar cabeçalho</b><br><small>Status: pendente</small></div><div class="task"><b>Subir coleção</b><br><small>Status: pendente</small></div></div><div class="kanban-col"><h4>Encerramento</h4><div class="task"><b>Consolidar resultados</b><br><small>Automático quando integrado</small></div><div class="task"><b>Registrar aprendizados</b><br><small>Manual</small></div></div></div></section>
+
+<section class="view" id="library"><div class="toolbar"><input id="libSearch" placeholder="Buscar ação..." oninput="renderLibrary()"><select id="libFilter" onchange="renderLibrary()"><option value="">Todos</option><option>Validada</option><option>Em teste</option><option>A testar</option><option>Fraca</option></select><button class="btn" onclick="addOffer()">+ Nova mecânica</button></div><div class="table-wrap"><table><thead><tr><th>Ação</th><th>Mecânica</th><th>Status</th><th>Conversão</th><th>Ticket</th><th>Observação</th></tr></thead><tbody id="libraryBody"></tbody></table></div></section>
+
+<section class="view" id="products"><div class="toolbar" style="flex-wrap:wrap;gap:8px"><input id="productSearch" placeholder="Buscar produto" oninput="filterProducts()"><select id="productCurve" onchange="filterProducts()"><option value="">Curva A/B/C</option><option value="A">Curva A</option><option value="B">Curva B</option><option value="C">Curva C</option></select><div style="display:flex;align-items:center;gap:6px;margin-left:auto"><select id="periodSelect" onchange="onPeriodChange(this.value)" style="font-size:12px;padding:8px 10px"><option value="7d">7 dias</option><option value="15d">15 dias</option><option value="60d" selected>60 dias</option><option value="custom">Personalizado...</option></select><div id="customRange" style="display:none;align-items:center;gap:4px"><input type="date" id="dateStart" style="font-size:11px;padding:6px 8px"><span>&#8594;</span><input type="date" id="dateEnd" style="font-size:11px;padding:6px 8px"><button class="btn primary" onclick="applyCustomPeriod()" style="font-size:11px">Aplicar</button></div></div></div><div class="table-wrap"><table><thead><tr><th>Produto</th><th>Curva</th><th>Receita</th><th>Unidades</th><th>Estoque</th><th>Sell-through*</th><th>Score criativo</th><th>Diagnóstico</th></tr></thead><tbody id="shopifyProductsBody"></tbody></table></div></section>
+
+
+    
+    <section class="view" id="creatives">
+      <div class="grid cards-4">
+        <div class="card metric"><small>Produtos prioritários</small><strong>12</strong><div class="delta up">Curva A + estoque saudável</div></div>
+        <div class="card metric"><small>Curva A sem vídeo</small><strong>5</strong><div class="delta down">Ação necessária</div></div>
+        <div class="card metric"><small>Risco de ruptura</small><strong>4</strong><div class="delta down">Não priorizar gravação</div></div>
+        <div class="card metric"><small>Novos testes</small><strong>8</strong><div class="delta up">Fila de experimentação</div></div>
+      </div>
+
+      <div class="section-title"><h3>Gestão por colaboradora</h3><span>cada pessoa acompanha apenas o que precisa executar</span></div>
+      <div class="toolbar" id="creatorTabs">
+        <button class="btn primary creator-tab" data-creator="Bia" onclick="selectCreator('Bia')">Bia</button>
+        <button class="btn creator-tab" data-creator="Isa" onclick="selectCreator('Isa')">Isa</button>
+        <button class="btn creator-tab" data-creator="Daia" onclick="selectCreator('Daia')">Daia</button>
+        <button class="btn creator-tab" data-creator="Todos" onclick="selectCreator('Todos')">Visão geral</button>
+      </div>
+
+      <div class="card" style="margin-bottom:16px">
+        <div class="grid cards-4">
+          <div class="metric"><small>Responsável</small><strong id="creatorName">Bia</strong></div>
+          <div class="metric"><small>Pendentes</small><strong id="creatorPending">4</strong></div>
+          <div class="metric"><small>Concluídos</small><strong id="creatorDone">7</strong></div>
+          <div class="metric"><small>Prioridade alta</small><strong id="creatorHigh">3</strong></div>
+        </div>
+      </div>
+
+      <div class="section-title"><h3>Fila de produção por modelo</h3><span>estoque + Curva ABC + formato + status</span></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Produto</th><th>Curva</th><th>Estoque</th><th>Alerta</th><th>Formato</th><th>Status</th><th>Prioridade</th><th>Responsável</th></tr></thead>
+        <tbody id="creatorQueueBody"></tbody>
+      </table></div>
+
+      <div class="split">
+        <div>
+          <div class="section-title"><h3>Formatos da colaboradora</h3><span>base + testes</span></div>
+          <div class="card" id="creatorFormats"></div>
+        </div>
+        <div>
+          <div class="section-title"><h3>Princípio operacional</h3><span>regra de crescimento</span></div>
+          <div class="notice">
+            <h3 style="margin-top:0">Formato validado é base. Novo resultado exige novo teste.</h3>
+            <p>O sistema deve sempre reservar espaço para experimentação. A prioridade é repetir o que funciona sem engessar a criação.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title"><h3>Alertas inteligentes</h3><span>sincronização desejada com Shopify</span></div>
+      <div class="card">
+        <div class="insight"><b>Curva A + estoque alto + sem vídeo</b><p>Gerar tarefa automaticamente e priorizar responsável adequado ao formato.</p></div>
+        <div class="insight"><b>Curva A + risco de ruptura</b><p>Retirar da fila prioritária de gravação até reposição de estoque.</p></div>
+        <div class="insight"><b>Estoque alto + conteúdo antigo</b><p>Inserir na fila de renovação criativa e sugerir 1 formato validado + 1 novo teste.</p></div>
+        <div class="insight"><b>Produto novo + sem Widde</b><p>Criar tarefa para Bia ou Isa produzirem vídeo de PDP com transição de cores.</p></div>
+      </div>
+
+      <div class="section-title"><h3>Gerador Criativo Cand</h3><span>hooks, estruturas e copies por narrativa</span></div>
+      <div class="card">
+        <div class="form-grid">
+          <div><label>Produto / tema</label><input id="genProduct" value="Boston"/></div>
+          <div><label>Narrativa</label>
+            <select id="genNarrative">
+              <option>Dor x solução</option>
+              <option>AIDA</option>
+              <option>Oferta agressiva</option>
+              <option>POV</option>
+              <option>Produto + acabamento</option>
+              <option>Desejo + identidade</option>
+              <option>Curiosidade</option>
+              <option>Prova social</option>
+              <option>Comparação</option>
+              <option>Reposição / voltou ao estoque</option>
+            </select>
+          </div>
+          <div><label>Formato</label>
+            <select id="genFormat">
+              <option>Provador</option>
+              <option>Widde</option>
+              <option>Estético</option>
+              <option>Notebook + site</option>
+              <option>Resultado de lente</option>
+              <option>UGC orgânico</option>
+              <option>Estático</option>
+            </select>
+          </div>
+          <div><label>Tom</label>
+            <select id="genTone"><option>Humanizado</option><option>Direto</option><option>Premium</option><option>Agressivo</option><option>Leve</option></select>
+          </div>
+          <div class="full"><label>Diferenciais / contexto</label><textarea id="genContext">Acetato premium, pronta entrega, até 10x sem juros, estoque limitado.</textarea></div>
+        </div>
+        <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn primary" onclick="generateCreative()">Gerar sugestões</button>
+          <button class="btn" onclick="clearGenerator()">Limpar</button>
+        </div>
+        <div id="generatorOutput" style="margin-top:16px"></div>
+      </div>
+
+      <div class="section-title"><h3>Biblioteca de estruturas</h3><span>atalhos para não depender sempre do zero</span></div>
+      <div class="grid cards-3">
+        <div class="card"><small>AIDA</small><h3>Atenção → Interesse → Desejo → Ação</h3><p style="color:var(--muted)">Boa para criativos de produto e oferta com progressão clara.</p></div>
+        <div class="card"><small>Dor x solução</small><h3>Problema → identificação → produto → CTA</h3><p style="color:var(--muted)">Boa para grau, conforto, lente, troca de óculos e objeções.</p></div>
+        <div class="card"><small>POV</small><h3>Situação → identificação → desejo</h3><p style="color:var(--muted)">Boa para conteúdo orgânico, lifestyle e quebra de padrão.</p></div>
+        <div class="card"><small>Oferta</small><h3>Preço → benefício → urgência → CTA</h3><p style="color:var(--muted)">Boa para ações comerciais e campanhas curtas.</p></div>
+        <div class="card"><small>Curiosidade</small><h3>Hook incompleto → revelação → prova → CTA</h3><p style="color:var(--muted)">Boa para retenção e lançamentos.</p></div>
+        <div class="card"><small>Prova social</small><h3>Reação → validação → produto → CTA</h3><p style="color:var(--muted)">Boa para best-sellers, reposições e modelos muito vendidos.</p></div>
+      </div>
+
+      <div class="section-title"><h3>Pipeline criativo</h3><span>da ideia ao aprendizado</span></div>
+      <div class="kanban">
+        <div class="kanban-col"><h4>Ideias / Mineração</h4><div class="task"><b>Comparativo de formatos</b><br><small>Hipótese: aumentar retenção</small></div><div class="task"><b>Close de acetato</b><br><small>Hipótese: elevar valor percebido</small></div></div>
+        <div class="kanban-col"><h4>Produção</h4><div class="task"><b>Boston — provador 4 cores</b><br><small>Responsável: Bia</small></div><div class="task"><b>Oxford — estético</b><br><small>Responsável: Daia</small></div></div>
+        <div class="kanban-col"><h4>Pronto / Publicar</h4><div class="task"><b>Charlotte — Widde</b><br><small>Responsável: Isa</small></div></div>
+        <div class="kanban-col"><h4>Aprendizado</h4><div class="task"><b>Registrar hipótese e resultado</b><br><small>Análise interna + performance do produto no site.</small></div></div>
+      </div>
+    </section>
+<section class="view" id="execution"><div class="kanban"><div class="kanban-col"><h4>Backlog</h4><div class="task"><b>24h / 24 por 124</b><br><small>Definir produtos e margem</small></div></div><div class="kanban-col"><h4>Em produção</h4><div class="task"><b>Semana do Acetato</b><br><small>Banner + criativos + copy</small></div></div><div class="kanban-col"><h4>Prontas</h4><div class="task"><b>Clip-ons R$159,90</b><br><small>Mecânica aprovada</small></div></div><div class="kanban-col"><h4>Finalizadas</h4><div class="task"><b>48 por 148</b><br><small>Aguardando relatório final</small></div></div></div></section>
+
+<section class="view" id="results"><div class="notice"><h3 style="margin-top:0">Camada automática</h3><p>Quando conectado à Shopify, este módulo deve preencher receita, pedidos, ticket, conversão, unidades, estoque inicial/final, sell-through e produtos campeões sem digitação manual.</p></div><div class="section-title"><h3>Relatório consolidado — exemplo</h3><span>48 por 148</span></div><div class="grid cards-4"><div class="card metric"><small>Receita</small><strong>R$ 126.480</strong></div><div class="card metric"><small>Pedidos</small><strong>612</strong></div><div class="card metric"><small>Ticket médio</small><strong>R$ 206,67</strong></div><div class="card metric"><small>Conversão</small><strong>2,84%</strong></div></div><div class="section-title"><h3>Aprendizados</h3><span>manual</span></div><div class="card"><div class="form-grid"><div><label>Avaliação</label><select><option>Excelente</option><option>Boa</option><option>Regular</option><option>Ruim</option></select></div><div><label>Decisão</label><select><option>Repetir</option><option>Ajustar</option><option>Não repetir</option><option>Testar novamente</option></select></div><div class="full"><label>O que funcionou</label><textarea placeholder="Ex.: preço direto + variedade + prazo curto"></textarea></div><div class="full"><label>Próximo teste</label><textarea placeholder="Ex.: reduzir duração / trocar mix / mudar preço"></textarea></div></div></div></section>
+
+<section class="view" id="intelligence"><div class="grid cards-3"><div class="card"><small>Melhor mecânica histórica</small><h3>72 por 172</h3><p style="color:var(--muted)">Boa combinação entre conversão, ticket e volume.</p></div><div class="card"><small>Maior oportunidade</small><h3>Semana do Acetato</h3><p style="color:var(--muted)">Mix forte de Curva A + margem saudável + narrativa premium.</p></div><div class="card"><small>Evitar no curto prazo</small><h3>Leve 3, Pague 2</h3><p style="color:var(--muted)">Performance recente abaixo do esperado.</p></div></div><div class="section-title"><h3>Recomendações</h3><span>regras demonstrativas</span></div><div class="card"><div class="insight"><b>Se conversão cair por 2 dias seguidos</b><p>Avaliar ação curta já validada antes de criar uma nova mecânica.</p></div><div class="insight"><b>Se estoque Curva A estiver alto</b><p>Priorizar campanhas por categoria ou preço fixo, preservando ticket saudável.</p></div><div class="insight"><b>Se uma oferta foi usada recentemente</b><p>Aplicar janela mínima antes de repetir para reduzir saturação.</p></div></div></section>
+
+<section class="view" id="settings"><div class="card"><h3 style="margin-top:0">Configurações</h3><div class="form-grid"><div><label>Ticket alvo mínimo</label><input value="190"></div><div><label>Ticket alvo máximo</label><input value="220"></div><div><label>Fonte principal</label><select><option>Shopify</option></select></div><div><label>Meta Ads</label><select><option>Não integrar</option></select></div>
+          <div><label>Sincronização automática</label><select id="autoSyncEnabled"><option>Ativa</option><option>Desativada</option></select></div>
+          <div><label>Horário diário</label><input id="autoSyncTime" value="06:00" readonly/></div><div><label>Status Shopify</label><input id="shopifyStatus" value="Não sincronizado" readonly/></div>
+          <div><label>Última sincronização</label><input id="shopifyLastSync" value="—" readonly/></div>
+          <div class="full"><label>Observação</label><textarea>As credenciais Shopify ficam somente no backend (.env). Nunca exponha o token no HTML/JavaScript do navegador.</textarea></div></div></div></section>
+</main></div>
+<script>
+const views=[['dashboard','Dashboard Executivo','Visão rápida da operação comercial'],['calendar','Calendário Comercial','Planejamento sequencial e editável'],['planner','Planejador Estratégico','Briefing, oferta, narrativa e execução'],['library','Biblioteca de Ações','Histórico de mecânicas e aprendizados'],['products','Produtos & Curva ABC','Performance comercial sem Meta Ads'],
+  ['creatives','Gestão de Criativos','Prioridades, formatos, responsáveis e testes'],['execution','Execução','Tarefas e status por campanha'],['intelligence','Inteligência','Recomendações e oportunidades'],['settings','Configurações','Regras e integrações']];
+const nav=document.getElementById('nav');views.forEach((v,i)=>{const b=document.createElement('button');b.textContent=v[1];b.dataset.view=v[0];if(i===0)b.classList.add('active');b.onclick=()=>showView(v[0]);nav.appendChild(b)});
+function showView(id){document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.view===id));const v=views.find(x=>x[0]===id);document.getElementById('viewTitle').textContent=v[1];document.getElementById('viewSub').textContent=v[2]}
+const defaultOffers=[{name:'48 por 148',mechanic:'48 produtos por R$148 / 48h',status:'Validada',conv:'2,84%',ticket:'R$206,67',note:'Boa performance e urgência clara.'},{name:'72 por 172',mechanic:'72 produtos por R$172 / 72h',status:'Validada',conv:'3,10%',ticket:'R$214,20',note:'Variação 07/07 performou muito bem.'},{name:'Leve 3, Pague 2',mechanic:'Leve 3 e pague 2',status:'Fraca',conv:'1,52%',ticket:'R$298,00',note:'Aumenta ticket, mas derrubou conversão.'},{name:'24 por 124',mechanic:'24 produtos por R$124 / 24h',status:'A testar',conv:'—',ticket:'—',note:'Hipótese forte para urgência.'},{name:'Semana do Acetato',mechanic:'Acetatos por R$199,90',status:'Em teste',conv:'—',ticket:'—',note:'Mix premium e boa margem.'},{name:'Clip-ons 159,90',mechanic:'Clip-ons selecionados por R$159,90',status:'A testar',conv:'—',ticket:'—',note:'Categoria com narrativa própria.'}];
+let data=JSON.parse(localStorage.getItem('candOS')||'null')||{offers:defaultOffers,events:[{month:'Agosto',day:'18–24',name:'Semana do Acetato',meta:'R$199,90 • Média/Alta'},{month:'Setembro',day:'08–09',name:'Ação 09/09',meta:'Definir mecânica • Alta'},{month:'Outubro',day:'10–12',name:'Data casada 10/10',meta:'Ação curta • Alta'},{month:'Novembro',day:'20–30',name:'Black Friday',meta:'Campanha principal • Muito alta'},{month:'Dezembro',day:'01–15',name:'Presentes Cand',meta:'Natal • Média'}],planner:{}};
+function persist(){localStorage.setItem('candOS',JSON.stringify(data))}
+function renderLibrary(){const q=(document.getElementById('libSearch')?.value||'').toLowerCase(),f=document.getElementById('libFilter')?.value||'',body=document.getElementById('libraryBody');if(!body)return;body.innerHTML='';data.offers.filter(o=>(!q||o.name.toLowerCase().includes(q)||o.mechanic.toLowerCase().includes(q))&&(!f||o.status===f)).forEach(o=>{const cls=o.status==='Validada'?'valid':o.status==='Fraca'?'weak':o.status==='Em teste'?'test':'plan';body.innerHTML+=`<tr><td><b>${o.name}</b></td><td>${o.mechanic}</td><td><span class="badge ${cls}">${o.status}</span></td><td>${o.conv}</td><td>${o.ticket}</td><td>${o.note}</td></tr>`});document.getElementById('validatedCount').textContent=data.offers.filter(o=>o.status==='Validada').length}
+function renderCalendar(){const months=['Agosto','Setembro','Outubro','Novembro','Dezembro'],wrap=document.getElementById('months');wrap.innerHTML='';months.forEach(m=>{const box=document.createElement('div');box.className='month';box.innerHTML=`<h4>${m} 2026</h4>`;data.events.filter(e=>e.month===m).forEach(e=>box.innerHTML+=`<div class="event"><b>${e.name}</b><div class="meta">${e.day} • ${e.meta}</div></div>`);wrap.appendChild(box)})}
+function renderUpcoming(){const u=document.getElementById('upcoming');u.innerHTML='';data.events.slice(0,4).forEach(e=>u.innerHTML+=`<div class="timeline-item"><div class="date">${e.month}<br>${e.day}</div><div><b>${e.name}</b><div style="font-size:12px;color:var(--muted);margin-top:4px">${e.meta}</div></div></div>`)}
+function addOffer(){const name=prompt('Nome da ação:');if(!name)return;const mechanic=prompt('Mecânica / oferta:')||'',status=prompt('Status (Validada, Em teste, A testar, Fraca):','A testar')||'A testar';data.offers.push({name,mechanic,status,conv:'—',ticket:'—',note:''});persist();renderLibrary()}
+function addCalendarEvent(){const month=prompt('Mês (Agosto, Setembro, Outubro, Novembro ou Dezembro):','Setembro');if(!month)return;const day=prompt('Período:','01–03'),name=prompt('Nome da ação:');if(!name)return;const meta=prompt('Resumo da oferta / intensidade:','A definir • Média');data.events.push({month,day,name,meta});persist();renderCalendar();renderUpcoming()}
+function savePlanner(){data.planner={name:pName.value,status:pStatus.value,offer:pOffer.value,duration:pDuration.value,goal:pGoal.value,intensity:pIntensity.value,narrative:pNarrative.value,pillars:pPillars.value};persist();alert('Planejamento salvo neste navegador.')}
+function resetPlanner(){localStorage.removeItem('candOS');location.reload()}
+function openQuickCampaign(){showView('planner');document.getElementById('pName').focus()}
+function exportData(){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='cand-commercial-os-backup.json';a.click();URL.revokeObjectURL(a.href)}
+function importData(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{data=JSON.parse(r.result);persist();
+renderLibrary();renderCalendar();renderUpcoming();alert('Dados importados.')}catch{alert('JSON inválido.')}};r.readAsText(f)}
+
+function generateCreative(){
+ const product=document.getElementById('genProduct').value.trim()||'produto';
+ const narrative=document.getElementById('genNarrative').value;
+ const format=document.getElementById('genFormat').value;
+ const tone=document.getElementById('genTone').value;
+ const context=document.getElementById('genContext').value.trim();
+ const templates={
+  'Dor x solução':[
+   `Você ainda escolhe óculos pensando só em beleza?`,
+   `Se o problema é encontrar um modelo que tenha presença sem pesar no rosto, olha o ${product}.`,
+   `O ${product} entra como solução: design pensado para uso real, com ${context.toLowerCase()}`
+  ],
+  'AIDA':[
+   `Olha o nível desse ${product}...`,
+   `O formato chama atenção logo de cara e os detalhes seguram o olhar.`,
+   `${context} Um modelo para quem quer mais presença no visual.`,
+   `Clique e veja as cores disponíveis.`
+  ],
+  'Oferta agressiva':[
+   `🚨 ${product} em condição especial!`,
+   `${context}`,
+   `Se gostou, não deixa para depois: estoque e cores podem acabar.`,
+   `Clique e garanta o seu agora.`
+  ],
+  'POV':[
+   `POV: você colocou o ${product} e o look inteiro fez mais sentido.`,
+   `Aquele tipo de armação que vira parte da produção sem precisar exagerar.`,
+   `${context}`
+  ],
+  'Produto + acabamento':[
+   `Dá um close nesse acabamento...`,
+   `O ${product} foi feito para quem repara nos detalhes.`,
+   `${context}`
+  ],
+  'Desejo + identidade':[
+   `Tem óculos que você usa. E tem óculos que parecem ter sido feitos pra você.`,
+   `O ${product} tem personalidade, presença e um desenho que muda a leitura do look.`,
+   `${context}`
+  ],
+  'Curiosidade':[
+   `Tem um detalhe nesse ${product} que muda tudo no rosto...`,
+   `Repara no formato e em como ele equilibra o visual.`,
+   `${context}`
+  ],
+  'Prova social':[
+   `Se tanta gente voltou procurando esse modelo, tem motivo.`,
+   `O ${product} ganhou espaço entre os favoritos por unir design e usabilidade.`,
+   `${context}`
+  ],
+  'Comparação':[
+   `De um lado, um óculos básico. Do outro, o ${product}.`,
+   `A diferença está no desenho, nos detalhes e na presença no rosto.`,
+   `${context}`
+  ],
+  'Reposição / voltou ao estoque':[
+   `🚨 O ${product} voltou!`,
+   `Depois de esgotar, ele está novamente disponível — mas a reposição é limitada.`,
+   `${context}`,
+   `Escolha sua cor antes que acabe de novo.`
+  ]
+ };
+ const lines=templates[narrative]||templates['AIDA'];
+ const output=document.getElementById('generatorOutput');
+ output.innerHTML=`
+   <div class="grid cards-3">
+    <div class="card" style="box-shadow:none"><small>HOOK</small><h3>${lines[0]}</h3><p style="color:var(--muted)">Formato: ${format} • Tom: ${tone}</p></div>
+    <div class="card" style="box-shadow:none"><small>DESENVOLVIMENTO</small><p>${lines.slice(1,-1).join(' ')||lines[1]}</p></div>
+    <div class="card" style="box-shadow:none"><small>CTA / FECHAMENTO</small><p>${lines[lines.length-1]}</p></div>
+   </div>
+   <div class="card" style="margin-top:10px;box-shadow:none"><small>3 VARIAÇÕES DE HOOK</small>
+    <p>1. ${lines[0]}</p>
+    <p>2. ${product}: olha o que esse formato faz no visual.</p>
+    <p>3. Se você gosta de óculos com personalidade, presta atenção nesse ${product}.</p>
+   </div>`;
+}
+function clearGenerator(){document.getElementById('genProduct').value='';document.getElementById('genContext').value='';document.getElementById('generatorOutput').innerHTML='';}
+
+function moneyBR(v){return new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(Number(v||0))}
+</script>
+<script src="/js/auth.js"></script>
+<script src="/js/products-ext.js"></script>
+<script src="/js/creatives-ext.js"></script>
+</body></html>
